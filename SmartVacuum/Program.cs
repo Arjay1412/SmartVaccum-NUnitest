@@ -110,7 +110,7 @@ namespace RobotCleaner
 
     public bool Move(int newX, int newY)
     {
-      if( _map.IsInBounds(newX, newY) && !_map.IsObstacle(newX, newY) )
+      if( _map.IsInBounds(newX, newY)) //removed !_map.Isobstacle 
       {
         // set the new location
         X = newX;
@@ -138,25 +138,51 @@ namespace RobotCleaner
     }
   }
 
- public class SomeStrategy : IStrategy
+  public class SomeStrategy : IStrategy
   {
     public void Clean(Robot robot)
     {
-        int direction = 1; // 1 = right, -1 = left
-        for (int y = 0; y < robot.Map.Height; y++)
+      int direction = 1; // 1 = right, -1 = left
+      for (int y = 0; y < robot.Map.Height; y++)
+      {
+        int startX = (direction == 1) ? 0 : robot.Map.Width - 1;
+        int endX = (direction == 1) ? robot.Map.Width : -1;
+
+        for (int x = startX; x != endX; x += direction)
         {
-            int startX = (direction == 1) ? 0 : robot.Map.Width - 1;
-            int endX = (direction == 1) ? robot.Map.Width : -1;
-            
-            for (int x = startX; x != endX; x += direction)
-            {
-                robot.Move(x, y);
-                robot.CleanCurrentSpot();
-            }
-            direction *= -1; // Reverse direction for the next row
+          robot.Move(x, y);
+          robot.CleanCurrentSpot();
         }
+        direction *= -1; // Reverse direction for the next row
+      }
     }
   }
+  
+  public class PerimeterHuggerStrategy : IStrategy
+    {
+        public void Clean (Robot robot)
+        {
+            Console.WriteLine("Start Perimeter Hugger...");
+            while (robot.Move(robot.X +1, robot.Y)) // Move Right
+            {
+                robot.CleanCurrentSpot();
+            }
+            while (robot.Move(robot.X, robot.Y + 1)) // Move Down
+            {
+                robot.CleanCurrentSpot();
+            }
+            while (robot.Move(robot.X-1, robot.Y)) // Move Left
+            {
+                robot.CleanCurrentSpot();
+            }
+            while (robot.Move(robot.X, robot.Y -1)) // Move Up
+            {
+                robot.CleanCurrentSpot();
+            }
+            Console.WriteLine("End Perimeter Hugger...");
+
+        }
+    }
 
 public class Program
   {
@@ -164,6 +190,7 @@ public class Program
     public static void Main(string[] args){
             Console.WriteLine("Initialize robot");
             IStrategy some_strategy = new SomeStrategy();
+            IStrategy PeriHugstrategy = new PerimeterHuggerStrategy();
 
             Map map = new Map(10, 10); // map.Display( 10,10);
 
@@ -174,8 +201,8 @@ public class Program
             map.AddObstacle(2,5);
             map.AddObstacle(9,1);
 
-            Robot robot = new Robot(map,some_strategy);
-            robot.Move(map.Width, map.Height);
+            Robot robot = new Robot(map,PeriHugstrategy);
+            robot.Move(0,0);
 
             robot.StartCleaning();
 
