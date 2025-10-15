@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartVacNTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b0e181f06a94201c3acc2c6f1788ebf685474d78")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+938052ca0fc0261525ac3160dff7d2719b328994")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartVacNTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartVacNTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -158,7 +158,7 @@ namespace RobotCleaner
     }
   }
   
-public class SpiralStrategy : IStrategy
+  public class SpiralStrategy : IStrategy
     {
         public void Clean(Robot robot)
         {
