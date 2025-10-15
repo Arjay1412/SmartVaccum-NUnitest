@@ -4,39 +4,36 @@ namespace SmartVacNTest;
 
 public class SmartVacuumTest
 {
-
     [Test]
-    public void Test1()
+    public void SpiralTest()
     {
+            {
             // ### 1. ARRANGE ###
-            // CreateD a small, predictable map and the strategy to be tested.
             var map = new Map(5, 5);
-            var strategy = new PerimeterHuggerStrategy();
+            var strategy = new SpriralStrategy();
             var robot = new Robot(map, strategy);
 
-            // Place dirt on the path the robot will travel (the perimeter).
-            map.AddDirt(2, 0); // Top edge
-            map.AddDirt(4, 3); // Right edge
-            map.AddDirt(1, 4); // Bottom edge
-            map.AddDirt(0, 2); // Left edge
-
-            // Place dirt in the center, which this strategy should NOT clean.
-            map.AddDirt(2, 2);
+            robot.X = 2;
+            robot.Y = 2;
+            
+            map.AddDirt(2, 2); 
+            map.AddDirt(3, 2); 
+            map.AddDirt(1, 1); 
+            map.AddDirt(0, 0); 
+            map.AddDirt(4, 4); 
 
             // ### 2. ACT ###
-
             robot.StartCleaning();
 
-            // ### 3. ASSERT ###
-            // Verify that the outcome is what we expect.
+            // ### 3. ASSERT (Using NUnit Constraint Syntax) ###
+            Assert.That(map.IsDirt(2, 2), Is.False, "Center dirt at (2,2) should be cleaned.");
+            Assert.That(map.IsDirt(3, 2), Is.False, "Inner spiral dirt at (3,2) should be cleaned.");
+            Assert.That(map.IsDirt(1, 1), Is.False, "Inner spiral dirt at (1,1) should be cleaned.");
+            Assert.That(map.IsDirt(0, 0), Is.False, "Corner dirt at (0,0) should be cleaned.");
+            Assert.That(map.IsDirt(4, 4), Is.False, "Corner dirt at (4,4) should be cleaned.");
 
-            // Check that all the dirt on the perimeter has been cleaned.
-            Assert.That(map.IsDirt(2, 0), Is.False);
-            Assert.That(map.IsDirt(4, 3),  Is.False);
-            Assert.That(map.IsDirt(1, 4),  Is.False);
-            Assert.That(map.IsDirt(0, 2),  Is.False);
-
-            // Crucially, check that the dirt in the middle was IGNORED.
-            Assert.That(map.IsDirt(2, 2),  Is.True);
+            Assert.That(robot.X, Is.EqualTo(4), "Robot's final X position should be 4.");
+            Assert.That(robot.Y, Is.EqualTo(0), "Robot's final Y position should be 0.");
         }
+    }
 }

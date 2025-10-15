@@ -158,29 +158,44 @@ namespace RobotCleaner
     }
   }
   
-  public class PerimeterHuggerStrategy : IStrategy
+public class SpiralStrategy : IStrategy
     {
-        public void Clean (Robot robot)
+        public void Clean(Robot robot)
         {
-            Console.WriteLine("Start Perimeter Hugger...");
-            while (robot.Move(robot.X +1, robot.Y)) // Move Right
+           robot.CleanCurrentSpot();
+           
+            int direction = 0; 
+            int segmentLength = 1;
+            int segmentsPassed = 0;
+           for (int i = 0; i < robot.Map.Width + robot.Map.Height ; i++)
+           {
+            for (int j = 0; j < segmentLength; j++)
             {
-                robot.CleanCurrentSpot();
+              switch (direction)
+              {
+                case 0: // Right
+                        robot.Move(robot.X + 1, robot.Y);
+                        break;
+                    case 1: // Down
+                        robot.Move(robot.X, robot.Y + 1);
+                        break;
+                    case 2: // Left
+                        robot.Move(robot.X - 1, robot.Y);
+                        break;
+                    case 3: // Up
+                        robot.Move(robot.X, robot.Y - 1);
+                        break;
+              }
+              robot.CleanCurrentSpot();
             }
-            while (robot.Move(robot.X, robot.Y + 1)) // Move Down
+            direction = (direction + 1) % 4;
+            segmentsPassed++;
+            
+            if (segmentsPassed % 2 == 0)
             {
-                robot.CleanCurrentSpot();
+                segmentLength++;
             }
-            while (robot.Move(robot.X-1, robot.Y)) // Move Left
-            {
-                robot.CleanCurrentSpot();
-            }
-            while (robot.Move(robot.X, robot.Y -1)) // Move Up
-            {
-                robot.CleanCurrentSpot();
-            }
-            Console.WriteLine("End Perimeter Hugger...");
-
+          }
         }
     }
 
@@ -190,9 +205,11 @@ public class Program
     public static void Main(string[] args){
             Console.WriteLine("Initialize robot");
             IStrategy some_strategy = new SomeStrategy();
-            IStrategy PeriHugstrategy = new PerimeterHuggerStrategy();
+            IStrategy Spiralstrategy = new SpiralStrategy();
 
             Map map = new Map(10, 10); // map.Display( 10,10);
+            int middleMapPosX = map.Width / 2;
+            int middleMapPosY = map.Height / 2; 
 
 
             map.AddDirt(5,3);
@@ -201,8 +218,8 @@ public class Program
             map.AddObstacle(2,5);
             map.AddObstacle(9,1);
 
-            Robot robot = new Robot(map,PeriHugstrategy);
-            robot.Move(0,0);
+            Robot robot = new Robot(map,Spiralstrategy);
+            robot.Move(middleMapPosX, middleMapPosY);
 
             robot.StartCleaning();
 
