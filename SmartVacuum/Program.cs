@@ -116,7 +116,7 @@ namespace RobotCleaner
         X = newX;
         Y = newY;
         // display the map with the robot in its location in the grid
-        _map.Display(X, Y);
+       // _map.Display(X, Y);
           return true;
       }
       // it cannot move
@@ -128,7 +128,7 @@ namespace RobotCleaner
       if(_map.IsDirt(X, Y))
       {
         _map.Clean(X, Y);
-        _map.Display(X, Y);
+        //_map.Display(X, Y);
       }
     }
 

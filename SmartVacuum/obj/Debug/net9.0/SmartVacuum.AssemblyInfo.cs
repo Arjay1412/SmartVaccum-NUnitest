@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartVacuum")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+938052ca0fc0261525ac3160dff7d2719b328994")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ab0e4bfe28afc0170e24490f2a1905382f2a24dc")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartVacuum")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartVacuum")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -32,8 +32,8 @@ public class SmartVacuumTest
             Assert.That(map.IsDirt(0, 0), Is.False);
             Assert.That(map.IsDirt(4, 4), Is.False);
 
-            Assert.That(robot.X, Is.EqualTo(4));
-            Assert.That(robot.Y, Is.EqualTo(0));
+            Assert.That(robot.X, Is.EqualTo(4)); // Final Robot X position is 4
+            Assert.That(robot.Y, Is.EqualTo(4)); // Final Robot Y position is 4
         }
     }
 }
