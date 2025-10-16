@@ -1,0 +1,152 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacNTest\\SmartVacNTest.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacNTest\\SmartVacNTest.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacNTest\\SmartVacNTest.csproj",
+        "projectName": "SmartVacNTest",
+        "projectPath": "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacNTest\\SmartVacNTest.csproj",
+        "packagesPath": "C:\\Users\\reyti\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacNTest\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\reyti\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacuum\\SmartVacuum.csproj": {
+                "projectPath": "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacuum\\SmartVacuum.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.12.0, )"
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[4.2.2, )"
+            },
+            "NUnit.Analyzers": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacuum\\SmartVacuum.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacuum\\SmartVacuum.csproj",
+        "projectName": "SmartVacuum",
+        "projectPath": "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacuum\\SmartVacuum.csproj",
+        "packagesPath": "C:\\Users\\reyti\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\reyti\\Desktop\\IS\\SmartVaccum-NUnitest\\SmartVacuum\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\reyti\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
